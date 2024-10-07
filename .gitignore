@@ -1,4 +1,10 @@
 # dependenies
 venv/
-install.ipynb
 
+# data
+data/*.csv
+data/*.txt
+
+# extras
+install.ipynb
+notes.txt
