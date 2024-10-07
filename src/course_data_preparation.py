@@ -22,7 +22,7 @@ departments = {
     15: ['legal', 'compliance', 'law', 'history']
 }
 
-def classify_courses(df, threshold=0.09):
+def course_preperation(df, threshold=0.09):
     department_assignments = []
     department_counts = {dept_id: 0 for dept_id in departments.keys()}  
 
@@ -64,7 +64,7 @@ def classify_courses(df, threshold=0.09):
 input_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'extracted_courses.csv')  
 df_courses = pd.read_csv(input_csv_path)
 
-dept_assignment_counts = classify_courses(df_courses)
+dept_assignment_counts = course_preperation(df_courses)
 
 output_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'classified_courses.csv')
 df_courses.to_csv(output_csv_path, index=False)

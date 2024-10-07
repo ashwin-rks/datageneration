@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-def process_courses(input_csv, output_csv):
+def course_extraction(input_csv, output_csv):
     """
     Process the courses from the input CSV and create a new CSV with selected fields
     and a text file with unique skills.
@@ -28,4 +28,4 @@ def process_courses(input_csv, output_csv):
 input_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'Coursera.csv')  
 output_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'extracted_courses.csv')
 
-process_courses(input_csv_path, output_csv_path)
+course_extraction(input_csv_path, output_csv_path)

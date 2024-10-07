@@ -5,7 +5,7 @@ import ast
 from tqdm import tqdm  
 
 
-def process_course_data(input_classified_courses, input_user_data):
+def course_generation(input_classified_courses, input_user_data):
     """
     Process course data to generate two DataFrames: one with course details and another with 
     course-department mappings. Assigns images and random course creators for each course.
@@ -74,9 +74,9 @@ def process_course_data(input_classified_courses, input_user_data):
 
 # Input CSVs
 input_classified_courses = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'classified_courses.csv')
-input_user_data = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'user_data_with_hash.csv')
+input_user_data = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'User.csv')
 
-df_courses_output, df_course_dept = process_course_data(input_classified_courses, input_user_data)
+df_courses_output, df_course_dept = course_generation(input_classified_courses, input_user_data)
 
 # Course Data
 output_courses_csv = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'Course.csv')

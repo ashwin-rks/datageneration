@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 fake = Faker()
 
-def generate_fake_data(no_of_users):
+def generate_user_data(no_of_users):
     """
     Generate a CSV file with fake user data and store it in the data folder.
     
@@ -54,7 +54,7 @@ def generate_fake_data(no_of_users):
     for dept_id, count in dept_distribution.items():
         dept_list.extend([dept_id] * count)
     
-    start_date = datetime(2020, 10, 1)  
+    start_date = datetime(2018, 10, 1)  
     end_date = datetime(2024, 10, 7)  
 
     created_at = fake.date_time_between(start_date=start_date, end_date=end_date)
@@ -68,23 +68,24 @@ def generate_fake_data(no_of_users):
 
         if user_id == 1:
             account_type = "admin"
-            email = f"{first_name.lower()}.{last_name.lower()}admin@jamngroup.com"
+            email = f"{first_name.lower()}.{last_name.lower()}$admin@jmangroup.com"
             dept_id = 1 
         else:
             if user_id % user_to_admin_ratio == 0:
                 account_type = "admin"
-                email = f"{first_name.lower()}.{last_name.lower()}admin@jamngroup.com"
+                email = f"{first_name.lower()}.{last_name.lower()}$admin@jmangroup.com"
                 dept_id = 1  
             else:
                 account_type = "user"
-                if not dept_list:  # Refill dept_list if it's empty
+                email = f"{first_name.lower()}.{last_name.lower()}@jmangroup.com"
+                if not dept_list:  
                     for dept_id, count in dept_distribution.items():
                         dept_list.extend([dept_id] * count)
-                    random.shuffle(dept_list)  # Shuffle again for randomness
+                    random.shuffle(dept_list)  
                 
                 dept_id = dept_list.pop(0)
 
-        max_created_at = created_at + timedelta(days=14)
+        max_created_at = created_at + timedelta(days=2)
         created_at = fake.date_time_between(start_date=created_at, end_date=max_created_at)
 
         updated_at = fake.date_time_between(start_date=created_at, end_date=end_date)
@@ -114,7 +115,7 @@ def generate_fake_data(no_of_users):
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
     
-    csv_filename_with_hash = os.path.join(output_directory, "user_data_with_hash.csv")
+    csv_filename_with_hash = os.path.join(output_directory, "User.csv")
     df.to_csv(csv_filename_with_hash, index=False)
 
     csv_filename_plain = os.path.join(output_directory, "user_data_plain.csv")
@@ -123,4 +124,4 @@ def generate_fake_data(no_of_users):
     print(f"{csv_filename_with_hash} created with {no_of_users} entries.")
     print(f"{csv_filename_plain} created with {no_of_users} entries.")
 
-generate_fake_data(1500)
+generate_user_data(800)
