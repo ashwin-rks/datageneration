@@ -5,7 +5,5 @@ venv/
 data/*.csv
 data/*.txt
 
-# extras
-install.ipynb
-notes.txt
-test.py
+# vscode
+src/__pycache__

@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+from colorama import Fore, Style
 
 def course_extraction(input_csv, output_csv):
     """
@@ -23,9 +24,9 @@ def course_extraction(input_csv, output_csv):
 
     df_filtered.to_csv(output_csv, index=False)
 
-    print(f"Processed courses saved to {output_csv}")
+    print(f"{Fore.GREEN}Processed courses saved to {output_csv}{Style.RESET_ALL}")
 
-input_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'Coursera.csv')  
-output_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'extracted_courses.csv')
+# input_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'Coursera.csv')  
+# output_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'extracted_courses.csv')
 
-course_extraction(input_csv_path, output_csv_path)
+# course_extraction(input_csv_path, output_csv_path)

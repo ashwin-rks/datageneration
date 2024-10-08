@@ -38,7 +38,7 @@ def create_skill_and_dept_csvs(input_file_path: str, output_dir: str):
 
 
 
-input_file = os.path.join(os.path.join(os.path.dirname(os.path.dirname(__file__))), 'data', 'extracted_skills.csv')
-output_dir = os.path.join(os.path.join(os.path.dirname(os.path.dirname(__file__))), 'data')
+# input_file = os.path.join(os.path.join(os.path.dirname(os.path.dirname(__file__))), 'data', 'extracted_skills.csv')
+# output_dir = os.path.join(os.path.join(os.path.dirname(os.path.dirname(__file__))), 'data')
 
-create_skill_and_dept_csvs(input_file, output_dir)
+# create_skill_and_dept_csvs(input_file, output_dir)

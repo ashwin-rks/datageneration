@@ -5,6 +5,7 @@ import os
 import random
 import bcrypt
 from tqdm import tqdm  
+from colorama import Fore, Style
 
 fake = Faker()
 
@@ -54,10 +55,10 @@ def generate_user_data(no_of_users):
     for dept_id, count in dept_distribution.items():
         dept_list.extend([dept_id] * count)
     
-    start_date = datetime(2018, 10, 1)  
-    end_date = datetime(2024, 10, 7)  
+    start_date = datetime(2019, 3, 28)  
+    end_date = datetime(2021, 6, 9)  
 
-    created_at = fake.date_time_between(start_date=start_date, end_date=end_date)
+    created_at = fake.date_time_between(start_date=start_date, end_date=(start_date + timedelta(days=2)))
 
     # Use tqdm to show progress
     for user_id in tqdm(range(1, no_of_users + 1), desc="Generating Users"):
@@ -121,7 +122,7 @@ def generate_user_data(no_of_users):
     csv_filename_plain = os.path.join(output_directory, "user_data_plain.csv")
     password_df.to_csv(csv_filename_plain, index=False)
 
-    print(f"{csv_filename_with_hash} created with {no_of_users} entries.")
-    print(f"{csv_filename_plain} created with {no_of_users} entries.")
+    print(f"{Fore.GREEN}{csv_filename_with_hash} created with {no_of_users} entries.{Style.RESET_ALL}")
+    print(f"{Fore.GREEN}{csv_filename_plain} created with {no_of_users} entries.{Style.RESET_ALL}")
 
-generate_user_data(800)
+# generate_user_data(800)

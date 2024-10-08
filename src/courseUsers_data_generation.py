@@ -80,10 +80,10 @@ def generate_course_users(user_data_path, course_department_path):
     return course_users_df
 
 
-user_data_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'User.csv')
-course_department_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'CourseDepartment.csv')
+# user_data_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'User.csv')
+# course_department_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'CourseDepartment.csv')
 
-course_users_df = generate_course_users(user_data_path, course_department_path)
-output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'CourseUser.csv')
-course_users_df.to_csv(output_path, index=False)
-print(f'Stored CourseUsers.csv at : {os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'CourseUser.csv')}')
+# course_users_df = generate_course_users(user_data_path, course_department_path)
+# output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'CourseUser.csv')
+# course_users_df.to_csv(output_path, index=False)
+# print(f'Stored CourseUsers.csv at : {os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'CourseUser.csv')}')

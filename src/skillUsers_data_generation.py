@@ -10,7 +10,7 @@ def generate_skillUsers(user_data_path, skill_department_path):
     user_data_df = pd.read_csv(user_data_path)
 
     start_date = datetime(2019, 3, 28)
-    end_date = datetime(2021, 6, 10)
+    end_date = datetime(2021, 6, 10)  
     current_date = datetime(2021, 6, 10)
 
     user_data_df['createdAt'] = pd.to_datetime(user_data_df['createdAt'])
@@ -74,10 +74,10 @@ def generate_skillUsers(user_data_path, skill_department_path):
 
     return skill_users_df
 
-user_data_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'User.csv')
-skill_department_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'SkillDepartment.csv')
+# user_data_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'User.csv')
+# skill_department_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'SkillDepartment.csv')
 
-skill_users_df = generate_skillUsers(user_data_path, skill_department_path)
-output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'SkillUsers.csv')
-skill_users_df.to_csv(output_path, index=False)
-print(f'Stored SkillUsers.csv at : {os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'SkillUsers.csv')}')
+# skill_users_df = generate_skillUsers(user_data_path, skill_department_path)
+# output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'SkillUsers.csv')
+# skill_users_df.to_csv(output_path, index=False)
+# print(f'Stored SkillUsers.csv at : {os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'SkillUsers.csv')}')

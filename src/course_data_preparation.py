@@ -61,12 +61,12 @@ def course_preperation(df, threshold=0.09):
 
     return dept_assignment_counts
 
-input_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'extracted_courses.csv')  
-df_courses = pd.read_csv(input_csv_path)
+# input_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'extracted_courses.csv')  
+# df_courses = pd.read_csv(input_csv_path)
 
-dept_assignment_counts = course_preperation(df_courses)
+# dept_assignment_counts = course_preperation(df_courses)
 
-output_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'classified_courses.csv')
-df_courses.to_csv(output_csv_path, index=False)
+# output_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'classified_courses.csv')
+# df_courses.to_csv(output_csv_path, index=False)
 
-print(f"Classified courses saved to {output_csv_path}")
+# print(f"Classified courses saved to {output_csv_path}")

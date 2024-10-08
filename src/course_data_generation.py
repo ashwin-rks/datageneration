@@ -72,20 +72,20 @@ def course_generation(input_classified_courses, input_user_data):
     return df_courses_output, df_course_dept
 
 
-# Input CSVs
-input_classified_courses = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'classified_courses.csv')
-input_user_data = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'User.csv')
+# # Input CSVs
+# input_classified_courses = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'classified_courses.csv')
+# input_user_data = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'User.csv')
 
-df_courses_output, df_course_dept = course_generation(input_classified_courses, input_user_data)
+# df_courses_output, df_course_dept = course_generation(input_classified_courses, input_user_data)
 
-# Course Data
-output_courses_csv = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'Course.csv')
-df_courses_output.to_csv(output_courses_csv, index=False)
+# # Course Data
+# output_courses_csv = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'Course.csv')
+# df_courses_output.to_csv(output_courses_csv, index=False)
 
-# CourseDepartment Data
-output_dept_csv = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'CourseDepartment.csv')
-df_course_dept.to_csv(output_dept_csv, index=False)
+# # CourseDepartment Data
+# output_dept_csv = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'CourseDepartment.csv')
+# df_course_dept.to_csv(output_dept_csv, index=False)
 
-# Print file paths for verification
-print(f"Course details saved to {output_courses_csv}")
-print(f"Course to department mappings saved to {output_dept_csv}")
+# # Print file paths for verification
+# print(f"Course details saved to {output_courses_csv}")
+# print(f"Course to department mappings saved to {output_dept_csv}")
