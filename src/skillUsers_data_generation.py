@@ -47,7 +47,7 @@ def generate_skillUsers(user_data_path, skill_department_path):
         else:
             return random.randint(int(len(skill_ids) * 0.7), len(skill_ids))
 
-    skill_users_df = pd.DataFrame(columns=['id', 'skill_id', 'user_id', 'competency'])
+    skill_users_df = pd.DataFrame(columns=['skill_id', 'user_id', 'competency'])
 
     for user_index, user_row in tqdm(user_data.iterrows(), total=user_data.shape[0], desc="Generating skills for users"):
         user_id = user_row['user_id']
@@ -61,14 +61,16 @@ def generate_skillUsers(user_data_path, skill_department_path):
             new_entries = []
             for skill in assigned_skills:
                 competency = get_competency(account_age_days)
-                new_entries.append({
-                    'id': len(skill_users_df) + 1,  
+                new_entries.append({  
                     'skill_id': skill,
                     'user_id': user_id,
                     'competency': competency
                 })
 
             skill_users_df = pd.concat([skill_users_df, pd.DataFrame(new_entries)], ignore_index=True)
+    
+    skill_users_df['id'] = range(1, len(skill_users_df) + 1)
+    skill_users_df = skill_users_df[['id', 'user_id', 'skill_id', 'competency']]
 
     return skill_users_df
 
